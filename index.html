@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-app="calculator">
+  <div data-ng-controller="calcController as vm">
+    <div class="numbers">
+      <div class="number" data-ng-click="vm.addNumber(number)" data-ng-repeat="number in vm.numbers">
+        {{number}}
+      </div>
+      <div class="decimal" data-ng-click="vm.addNumber('.')">.</div>
+    </div>
+    <div class="operators">
+      <div class="operators">
+        <div class="operator" data-ng-click="vm.addOperator(operator)" data-ng-repeat="operator in vm.operators">
+          {{operator}}
+        </div>
+      </div>
+    </div>
+    <div class="display">
+      <div class="firstNumber">First Num: {{vm.firstNumber.join("")}}</div>
+      <div class="operator">Operator: {{vm.operator}}</div>
+      <div class="secondNumber">Second Num: {{vm.secondNumber.join("")}}</div>
+      <div class="operator">=</div>
+      <div class="evaluation">Solution: {{vm.solution}}</div>
+    </div>
+    <h2 data-ng-click="vm.evaluate()">Evaluate!</h2>
+    <h2 data-ng-click="vm.resetCalc()">Reset</h2>
+
+  </div>
+</body>
+</html>
